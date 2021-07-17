@@ -1,4 +1,5 @@
-# %%
+#!/usr/bin/python3
+# i.	Get only the maximum rating for an industry
 import json
 
 
