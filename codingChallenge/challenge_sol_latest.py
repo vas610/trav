@@ -108,7 +108,7 @@ def create_csv(input_file, df):
         os.remove(output_csv_file)
     except OSError:
         pass
-    df.to_csv(output_csv_file, index=False)
+    df.to_csv(output_csv_file, index=False, sep='\t')
     return output_csv_file
 
 
@@ -150,7 +150,12 @@ if __name__ == '__main__':
               encoding='utf-8') as _in_file:
         _raw_obj = _in_file.readlines()
         df = create_df(_raw_obj)
-        print(max_rating_per_industry(df))
-        print(company_with_min_rating_per_parent(df))
+        print("================Save Parse JSON as CSV=============")
         print(create_csv(input_file, df))
-
+        print("===================================================")
+        print("===============Max rating per industry=============")
+        print(max_rating_per_industry(df))
+        print("===================================================")
+        print("==========Company with min rating per parent=======")
+        print(company_with_min_rating_per_parent(df))
+        print("===================================================")
