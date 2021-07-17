@@ -7,10 +7,12 @@
     - ii.	Get the minimum rating of a child company for the parent company
     - iii.	Transpose all the child companies as columns for a parent company
 
-# Things to note
 
-1. The given JSON file wasn't a valid json. It had two JSON records. I assumed both the records need to be combined before the analysis.
-2. 
+# Note
+
+1. Possible test data error: The given JSON file wasn't a valid json. It had two JSON records. I assumed both the records need to be combined before the analysis.
+2. _Get the minimum rating of a child company for the parent company_ Assumed the company with minimum rating for a parent is needed.
+3. _Transpose all the child companies as columns for a parent company_ Ambiguous question
 
 
 
