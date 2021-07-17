@@ -1,3 +1,12 @@
+# Challenge
+
+1.	Parse the attached Json and create a CSV file 
+	
+2.	Perform the below descriptive analysis; 
+    - i.	Get only the maximum rating for an industry
+    - ii.	Get the minimum rating of a child company for the parent company
+    - iii.	Transpose all the child companies as columns for a parent company
+
 # Things to note
 
 1. The given JSON file wasn't a valid json. It had two JSON records. I assumed both the records need to be combined before the analysis.
