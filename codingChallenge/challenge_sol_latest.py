@@ -1,8 +1,10 @@
-# %%
 #!/usr/bin/python3
+# %%
+
 import os
 import json
 import pandas as pd
+import glob
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 pd.set_option('expand_frame_repr', False)
@@ -102,7 +104,13 @@ def create_csv(input_file, df):
         output_csv_file.split(os.path.sep)[:-1])
     input_file_name = output_csv_file.split(os.path.sep)[-1].split('.')[0]
     output_csv_file = os.path.join(input_file_path, input_file_name + '.csv')
-    print(output_csv_file)
+    try:
+        os.remove(output_csv_file)
+    except OSError:
+        pass
+    df.to_csv(output_csv_file, index=False)
+    return output_csv_file
+
 
 
 # %%
@@ -144,7 +152,5 @@ if __name__ == '__main__':
         df = create_df(_raw_obj)
         print(max_rating_per_industry(df))
         print(company_with_min_rating_per_parent(df))
-        # print(max_rating_per_industry(df).to_dict())
-        # print(company_with_min_rating_per_parent(df).to_dict(orient="records"))
-        create_csv(input_file, df)
+        print(create_csv(input_file, df))
 
