@@ -94,10 +94,10 @@ def create_csv(input_file, df):
     """
     Creates a csv file for input json
 
-    :input_file: parent id
-    :obj: child json/dict object to be parsed
+    :input_file: input json file name
+    :df: dataframe to be saved as csv
 
-    :return: csv file
+    :return: csv file name with path
     """
     output_csv_file = os.path.abspath(input_file)
     input_file_path = os.path.sep.join(
