@@ -15,6 +15,8 @@ setup(
     include_package_data=True,
     install_requires=requirements,
     packages=packages,
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
     zip_safe=False,
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -33,7 +33,7 @@
     pip install -e .
 
     # Run unit test
-    pytest . -v -s
+    python setup.py test
 
     # Run the actual program
 
