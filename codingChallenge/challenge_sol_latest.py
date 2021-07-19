@@ -4,8 +4,8 @@
 import os
 import json
 import pandas as pd
-import glob
 import numpy as np
+from tabulate import tabulate
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 pd.set_option('expand_frame_repr', False)
@@ -165,14 +165,16 @@ def pivot_child_companies_to_parent(df):
     df_final = pd.concat(
         [df_temp_2[
             ['parent_guid',
-             'parent_name']], df_temp_3, ], axis=1).replace(np.nan, '-')
+             'parent_name']],
+            df_temp_3, df_temp_4], axis=1).replace(np.nan, '-')
     return df_final
 
 
 # %%
 if __name__ == '__main__':
     pd.set_option("display.max_rows", None, "display.max_columns", None)
-    input_file = input().strip()
+    input_file = input(
+        "Enter a json file name (with path) to process: ").strip()
     if input_file is None or len(input_file) == 0:
         # input_file = '../b.i/b.i.test/sample.json'
         input_file = 'sample.json'
@@ -188,28 +190,11 @@ if __name__ == '__main__':
         print(max_rating_per_industry(df))
         print("===================================================\n")
         print("==========Company with min rating per parent=======")
-        print(company_with_min_rating_per_parent(df))
+        print(tabulate(company_with_min_rating_per_parent(df),
+                       headers='keys', tablefmt='github'))
         print("===================================================\n")
         print("==========Pivot / transpose child to parent=======")
-        print(pivot_child_companies_to_parent(df))
+        # print(pivot_child_companies_to_parent(df))
+        print(tabulate(pivot_child_companies_to_parent(df),
+                       headers='keys', tablefmt='github'))
         print("===================================================\n")
-
-
-# #%%
-# groups =[]
-# for idx, val in enumerate(cols_agg):
-#     # df3 = df2[col[1]].str.split('|', expand=True)
-#     # df3 = pd.DataFrame(df2.guid.str.split('|', expand=True))
-#     print(len(df2[val].str.split('|', expand=True).columns))
-#     groups.append(df2[val].str.split('|', expand=True).rename({0:'child_'+cols_agg[idx]+'_0',
-#                                                                1:'child_'+cols_agg[idx]+'_1',
-#                                                                }, axis=1))
-# len(groups)
-
-# # %%
-# df_last = df1[df1.parent_guid=='69012de7-10d4-4b13-940c-872e8cc4a0f0'].iloc[:, :3].reset_index(drop=True)
-
-# df_last
-# # %%
-
-# %%
