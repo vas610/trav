@@ -1,0 +1,28 @@
+2021-07-19 10:41:04,960 | INFO | No input file given. Using a sample file input/sample.json
+2021-07-19 10:41:04,962 | INFO | ================Save Parse JSON as CSV=============
+2021-07-19 10:41:04,964 | INFO | /tech/appl/default/user/vs94231e/coding_challenge/b.ii/trav/codingChallenge/output/sample.csv
+2021-07-19 10:41:04,964 | INFO | ===================================================
+
+2021-07-19 10:41:04,964 | INFO | ===============Max rating per industry=============
+2021-07-19 10:41:04,966 | INFO | 
+industry
+Manufacturing    770
+Name: rating, dtype: int64
+2021-07-19 10:41:04,966 | INFO | ===================================================
+
+2021-07-19 10:41:04,966 | INFO | ==========Company with min rating per parent=======
+2021-07-19 10:41:04,970 | INFO | 
+|    | parent_guid                          | parent_name           | guid                                 | name                                           |   rating | industry      | is_service_provider   | rating_type   | is_subscribed   | EventTS                  | EventTypeCd   | FormCd                      |
+|----|--------------------------------------|-----------------------|--------------------------------------|------------------------------------------------|----------|---------------|-----------------------|---------------|-----------------|--------------------------|---------------|-----------------------------|
+|  3 | 69012de7-10d4-4b13-940c-872e8cc4a0f0 | KYOCERA Group         | b159d957-ec00-480a-948a-fb690836442a | KYOCERA Corporation                            |      560 | Manufacturing | False                 | CURATED       | False           | 2018-10-15T18:37:27.712Z | BITSIGHT      | Companies_GUID_Company-tree |
+|  6 | 7585a01a-fa62-4c26-be3f-f8e82aa819e0 | KYOCERA Display Group | d7bdd7da-3c5b-4209-86aa-9899ade317c6 | KYOCERA International, Inc. - Display Division |      730 | Manufacturing | False                 | CURATED       | False           | 2018-10-15T18:37:27.712Z | BITSIGHT      | Companies_GUID_Company-tree |
+2021-07-19 10:41:04,970 | INFO | ===================================================
+
+2021-07-19 10:41:04,970 | INFO | ==========Pivot / transpose child to parent=======
+2021-07-19 10:41:04,983 | INFO | 
+|    | parent_guid                          | parent_name           | child_name_0                   | child_name_1                                   | child_name_2        | child_name_3          | child_guid_0                         | child_guid_1                         | child_guid_2                         | child_guid_3                         |
+|----|--------------------------------------|-----------------------|--------------------------------|------------------------------------------------|---------------------|-----------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+|  0 | 69012de7-10d4-4b13-940c-872e8cc4a0f0 | KYOCERA Group         | KYOCERA Asia Pacific Pte. Ltd. | KYOCERA Chemical (Wuxi) Co., Ltd.              | KYOCERA Corporation | KYOCERA Display Group | 28837c60-21e8-49d2-aa29-6ab1a69af529 | adbbff76-3846-46f3-bdd8-f0c4206e6803 | b159d957-ec00-480a-948a-fb690836442a | 7585a01a-fa62-4c26-be3f-f8e82aa819e0 |
+|  1 | 7585a01a-fa62-4c26-be3f-f8e82aa819e0 | KYOCERA Display Group | KYOCERA Display Corporation    | KYOCERA International, Inc. - Display Division | -                   | -                     | 5c0ec5d1-f582-422b-8881-bdfada235ce5 | d7bdd7da-3c5b-4209-86aa-9899ade317c6 | -                                    | -                                    |
+2021-07-19 10:41:04,983 | INFO | ===================================================
+

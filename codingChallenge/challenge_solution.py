@@ -24,7 +24,7 @@ stdout_handler.setFormatter(formatter)
 
 # Log file handler
 os.makedirs('logs', mode=0o777, exist_ok=True)
-file_handler = logging.FileHandler('logs/logs.log', 'w+')
+file_handler = logging.FileHandler('logs/log', 'w+')
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 
