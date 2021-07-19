@@ -1,14 +1,36 @@
 #!/usr/bin/python3
 # %%
-
+import sys
 import os
 import json
+import logging
 import pandas as pd
 import numpy as np
 from tabulate import tabulate
 
+# Something to make pandas display in print much more readable
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 pd.set_option('expand_frame_repr', False)
+
+# Setting up the logger
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
+
+# STDOUT handler
+stdout_handler = logging.StreamHandler(sys.stdout)
+stdout_handler.setLevel(logging.DEBUG)
+stdout_handler.setFormatter(formatter)
+
+# Log file handler
+os.makedirs('logs', mode=0o777, exist_ok=True)
+file_handler = logging.FileHandler('logs/logs.log', 'w+')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+# Adding handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(stdout_handler)
 
 # %%
 
@@ -178,23 +200,26 @@ if __name__ == '__main__':
     if input_file is None or len(input_file) == 0:
         # input_file = '../b.i/b.i.test/sample.json'
         input_file = 'sample.json'
-        print("No input file given. Using a sample file")
+        logger.info("No input file given. Using a sample file")
     with open(input_file,
               encoding='utf-8') as _in_file:
         _raw_obj = _in_file.readlines()
         df = create_df(_raw_obj)
-        print("================Save Parse JSON as CSV=============")
-        print(create_csv(input_file, df))
-        print("===================================================\n")
-        print("===============Max rating per industry=============")
-        print(max_rating_per_industry(df))
-        print("===================================================\n")
-        print("==========Company with min rating per parent=======")
-        print(tabulate(company_with_min_rating_per_parent(df),
-                       headers='keys', tablefmt='github'))
-        print("===================================================\n")
-        print("==========Pivot / transpose child to parent=======")
+        logger.info("\n" + "123")
+        logger.info("================Save Parse JSON as CSV=============")
+        logger.info(create_csv(input_file, df))
+        logger.info("===================================================\n")
+        logger.info("===============Max rating per industry=============")
+        logger.info("\n" + str(max_rating_per_industry(df)))
+        logger.info("===================================================\n")
+        logger.info("==========Company with min rating per parent=======")
+        logger.info("\n" + tabulate(company_with_min_rating_per_parent(df),
+                                    headers='keys', tablefmt='github'))
+        logger.info("===================================================\n")
+        logger.info("==========Pivot / transpose child to parent=======")
         # print(pivot_child_companies_to_parent(df))
-        print(tabulate(pivot_child_companies_to_parent(df),
-                       headers='keys', tablefmt='github'))
-        print("===================================================\n")
+        logger.info("\n" + tabulate(pivot_child_companies_to_parent(df),
+                                    headers='keys', tablefmt='github'))
+        logger.info("===================================================\n")
+
+# %%
