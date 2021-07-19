@@ -1,0 +1,8 @@
+parent_guid,parent_name,guid,name,rating,industry,is_service_provider,rating_type,is_subscribed,EventTS,EventTypeCd,FormCd
+,,69012de7-10d4-4b13-940c-872e8cc4a0f0,KYOCERA Group,490,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+69012de7-10d4-4b13-940c-872e8cc4a0f0,KYOCERA Group,28837c60-21e8-49d2-aa29-6ab1a69af529,KYOCERA Asia Pacific Pte. Ltd.,650,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+69012de7-10d4-4b13-940c-872e8cc4a0f0,KYOCERA Group,adbbff76-3846-46f3-bdd8-f0c4206e6803,"KYOCERA Chemical (Wuxi) Co., Ltd.",730,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+69012de7-10d4-4b13-940c-872e8cc4a0f0,KYOCERA Group,b159d957-ec00-480a-948a-fb690836442a,KYOCERA Corporation,560,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+69012de7-10d4-4b13-940c-872e8cc4a0f0,KYOCERA Group,7585a01a-fa62-4c26-be3f-f8e82aa819e0,KYOCERA Display Group,750,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+7585a01a-fa62-4c26-be3f-f8e82aa819e0,KYOCERA Display Group,5c0ec5d1-f582-422b-8881-bdfada235ce5,KYOCERA Display Corporation,770,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree
+7585a01a-fa62-4c26-be3f-f8e82aa819e0,KYOCERA Display Group,d7bdd7da-3c5b-4209-86aa-9899ade317c6,"KYOCERA International, Inc. - Display Division",730,Manufacturing,False,CURATED,False,2018-10-15T18:37:27.712Z,BITSIGHT,Companies_GUID_Company-tree

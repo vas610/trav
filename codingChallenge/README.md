@@ -1,37 +1,43 @@
 # Challenge
 
-1.	Parse the attached Json and create a CSV file 
-	
-2.	Perform the below descriptive analysis; 
+1.	Parse the attached Json and create a CSV file
+
+2.	Perform the below descriptive analysis;
     - i.	Get only the maximum rating for an industry
     - ii.	Get the minimum rating of a child company for the parent company
     - iii.	Transpose all the child companies as columns for a parent company
 
 
-# Note
+# Notes & assumptions
 
 1. Possible test data error: The given JSON file wasn't a valid json. It had two JSON records. I assumed both the records need to be combined before the analysis.
 2. _Get the minimum rating of a child company for the parent company_  - Assumed the company with minimum rating for a parent is needed.
-3. _Transpose all the child companies as columns for a parent company_  - Assumed child comapnies to be pivoted to respective parent company. 
+3. _Transpose all the child companies as columns for a parent company_  - Assumed child comapnies to be pivoted to respective parent company.
 
 
-## Setup
-    
+## Setup & execution
+
     # Required python3.6 or higher in a linux / unix system
-    
+
     git@github.com:vas610/trav.git
-    
+
     cd trav/codingChallenge
-    
+
     python -m venv venv
-    
+
     source ./venv/bin/activate
-    
+
     pip install -e .
-    
+
+    ./challenge_solution.py
+
+## logs
+
+   Logs can be found in [logs/logs.log](logs/logs.log)
+
 ## Outputs
 
-1. Save JSON as CSV - [1_output.csv](1_output.csv)
+1. Save JSON as CSV - [part-r-00000-ace4d84a-d8cb-4eaa-a377-9d3e8bbf73b2.csv](output/part-r-00000-ace4d84a-d8cb-4eaa-a377-9d3e8bbf73b2.csv)
 
    |parent_guid                         |guid                                |name                                             |rating|industry         |is_service_provider|rating_type|is_subscribed|EventTS                 |EventTypeCd|FormCd                     |
    |------------------------------------|------------------------------------|-------------------------------------------------|------|-----------------|-------------------|-----------|-------------|------------------------|-----------|---------------------------|
@@ -93,8 +99,8 @@
    |69012de7-10d4-4b13-940c-872e8cc4a0f0|d8453fc4-da76-4c50-84ad-09ef835f15a3|KYOCERA do Brasil Componentes Industriais Ltda.  |740   |Engineering      |False              |CURATED    |False        |2018-10-15T18:37:27.712Z|BITSIGHT   |Companies_GUID_Company-tree|
    |69012de7-10d4-4b13-940c-872e8cc4a0f0|6c5133db-a43a-4e22-b224-24bfe4b3cd53|Kyocera Solar, Inc.                              |710   |Energy/Resources |False              |CURATED    |False        |2018-10-15T18:37:27.712Z|BITSIGHT   |Companies_GUID_Company-tree|
    |5ec089ca-beb6-42e4-9184-216a7fd95612|5ec089ca-beb6-42e4-9184-216a7fd95612|Huntington Bancshares, Inc.                      |700   |Finance          |False              |CURATED    |True         |2018-10-15T18:36:26.690Z|BITSIGHT   |Companies_GUID_Company-tree|
-  
-2. 
+
+2.
    1. Max rating per industry
 
            industry
@@ -105,7 +111,7 @@
            Manufacturing        770
            Technology           760
            Name: rating, dtype: int64
-	   
+
    2. Company with minimum rating per parent
       |    | parent_guid                          | parent_name                               | guid                                 | name                                           |   rating | industry          | is_service_provider   | rating_type   | is_subscribed   | EventTS                  | EventTypeCd   | FormCd                      |
       |----|--------------------------------------|-------------------------------------------|--------------------------------------|------------------------------------------------|----------|-------------------|-----------------------|---------------|-----------------|--------------------------|---------------|-----------------------------|
@@ -118,7 +124,7 @@
       | 36 | 431ef8db-be7a-4da1-b4ac-30387feaac0e | KYOCERA UNIMERCO Group                    | dda08a8c-4648-4430-9be8-a0eb975a5bf7 | KYOCERA UNIMERCO A/S                           |      620 | Engineering       | False                 | CURATED       | False           | 2018-10-15T18:37:27.712Z | BITSIGHT      | Companies_GUID_Company-tree |
       | 50 | 708e91f9-1197-4cee-a3bf-d407c80c2f61 | KYOCERA SENCO Industrial Tools Group      | b17dce7b-8d46-4048-a9b0-8a1697abefee | KYOCERA SENCO Netherlands Companies            |      520 | Engineering       | False                 | CURATED       | False           | 2018-10-15T18:37:27.712Z | BITSIGHT      | Companies_GUID_Company-tree |
       | 51 | b17dce7b-8d46-4048-a9b0-8a1697abefee | KYOCERA SENCO Netherlands Companies       | 859e3bc6-fd1b-46f9-9195-46d5333f567a | KYOCERA SENCO Deutschland                      |      570 | Manufacturing     | False                 | CURATED       | False           | 2018-10-15T18:37:27.712Z | BITSIGHT      | Companies_GUID_Company-tree |
-   4. Children pivoted to parent as columns 	   
+   4. Children pivoted to parent as columns
       |    | parent_guid                          | parent_name                               | child_name_0                                      | child_name_1                                   | child_name_2                                 | child_name_3                           | child_name_4                                | child_name_5                           | child_name_6                                 | child_name_7                          | child_name_8                             | child_name_9                             | child_name_10                          | child_name_11                        | child_name_12                         | child_name_13                        | child_name_14                                   | child_name_15       | child_guid_0                         | child_guid_1                         | child_guid_2                         | child_guid_3                         | child_guid_4                         | child_guid_5                         | child_guid_6                         | child_guid_7                         | child_guid_8                         | child_guid_9                         | child_guid_10                        | child_guid_11                        | child_guid_12                        | child_guid_13                        | child_guid_14                        | child_guid_15                        |
       |----|--------------------------------------|-------------------------------------------|---------------------------------------------------|------------------------------------------------|----------------------------------------------|----------------------------------------|---------------------------------------------|----------------------------------------|----------------------------------------------|---------------------------------------|------------------------------------------|------------------------------------------|----------------------------------------|--------------------------------------|---------------------------------------|--------------------------------------|-------------------------------------------------|---------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
       |  0 | 06c8cb4d-d3e8-40a4-9be5-20886a453468 | KYOCERA Document Solutions Group          | Annodata Limited                                  | Ceyoniq Technology GmbH                        | KYOCERA Document Solutions Asia Companies    | KYOCERA Document Solutions Brazil      | KYOCERA Document Solutions Europe Group     | KYOCERA Document Solutions Inc.        | KYOCERA Document Solutions New England, Inc. | TA Triumph-Adler GmbH                 | -                                        | -                                        | -                                      | -                                    | -                                     | -                                    | -                                               | -                   | 3b510573-53a7-45ba-b221-4051fd274209 | 6b6ab696-8717-4b5e-8043-67ed6febbca0 | ad8b9521-d8b8-4c02-bbe8-74dfbcc11255 | 58629abb-a0a1-48cb-acbf-a078825aa6b8 | e32e733a-3111-468c-9bee-81b74542cfb9 | 232770b2-7095-42b8-99ef-63798b3676b7 | 09380a90-a0a4-4a58-9406-691f2ddfd58d | 51b7729b-7fb6-4f18-807d-dd6125acd60a | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    |
@@ -130,4 +136,4 @@
       |  6 | ad8b9521-d8b8-4c02-bbe8-74dfbcc11255 | KYOCERA Document Solutions Asia Companies | KYOCERA Document Solutions (Thailand) Corp., Ltd. | KYOCERA Document Solutions Asia Limited        | KYOCERA Document Solutions Hong Kong Limited | -                                      | -                                           | -                                      | -                                            | -                                     | -                                        | -                                        | -                                      | -                                    | -                                     | -                                    | -                                               | -                   | 61277b5d-38cf-471a-afc3-082e7671a710 | 28aac3bc-2e4a-4bc7-98b2-ce475cd07ea7 | e14470f7-09d4-4a25-bf55-c1719ca60b0c | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    |
       |  7 | b17dce7b-8d46-4048-a9b0-8a1697abefee | KYOCERA SENCO Netherlands Companies       | KYOCERA SENCO Deutschland                         | KYOCERA SENCO Netherlands B.V.                 | KYOCERA SENCO UK                             | -                                      | -                                           | -                                      | -                                            | -                                     | -                                        | -                                        | -                                      | -                                    | -                                     | -                                    | -                                               | -                   | 859e3bc6-fd1b-46f9-9195-46d5333f567a | e5861f3b-73e7-4b38-aa15-e426fa36e15c | f5265a90-bf28-4a3a-9e1a-023ef1e22195 | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    | -                                    |
       |  8 | e32e733a-3111-468c-9bee-81b74542cfb9 | KYOCERA Document Solutions Europe Group   | KYOCERA Document Solutions (U.K.) Limited         | KYOCERA Document Solutions Austria GmbH        | KYOCERA Document Solutions Belgium N.V.      | KYOCERA Document Solutions Denmark A/S | KYOCERA Document Solutions Deutschland GmbH | KYOCERA Document Solutions España S.A. | KYOCERA Document Solutions Europe B.V.       | KYOCERA Document Solutions Finland Oy | KYOCERA Document Solutions France S.A.S. | KYOCERA Document Solutions Italia S.p.A. | KYOCERA Document Solutions Middle East | KYOCERA Document Solutions Norge NUF | KYOCERA Document Solutions Russia LLC | -                                    | -                                               | -                   | 4a709042-c8cd-485c-8167-aac08fa68cce | 6ce6e3c9-863b-468d-a0d7-4204092eab1e | fe409d83-0260-4a38-a6aa-88309cf6947b | dc5062ad-862f-498e-8956-ae6a33155958 | f2ac7dbf-1ff0-4b41-9d2b-ffd35c5456bd | 512eac6c-8161-4951-a8fa-a67d390efa83 | 5cdcc6a0-6d96-48b9-b90b-2cd7e70f1f6a | 00f35eed-8fa0-4699-a491-a1ecb5273ac0 | afe0c76c-7bff-4c08-ad45-6a08017f43a2 | c29c8e98-621f-4af9-b6a8-c01a190d115d | 49064d45-fc23-4671-8ed3-3732ba01b429 | 35c100af-bfaa-4bb3-b124-395f5f9ad497 | 8a39941d-2b9f-40c3-ba4f-b90b3163a1b1 | -                                    | -                                    | -                                    |
-	  
+

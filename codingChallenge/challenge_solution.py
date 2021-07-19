@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!venv/bin/python3
 # %%
 import sys
 import os
@@ -129,9 +129,10 @@ def create_csv(input_file, df):
     """
     output_csv_file = os.path.abspath(input_file)
     input_file_path = os.path.sep.join(
-        output_csv_file.split(os.path.sep)[:-1])
+        output_csv_file.split(os.path.sep)[:-2])
     input_file_name = output_csv_file.split(os.path.sep)[-1].split('.')[0]
-    output_csv_file = os.path.join(input_file_path, input_file_name + '.csv')
+    output_csv_file = os.path.join(input_file_path, 'output',
+                                   input_file_name + '.csv')
     try:
         os.remove(output_csv_file)
     except OSError:
@@ -199,13 +200,12 @@ if __name__ == '__main__':
         "Enter a json file name (with path) to process: ").strip()
     if input_file is None or len(input_file) == 0:
         # input_file = '../b.i/b.i.test/sample.json'
-        input_file = 'sample.json'
-        logger.info("No input file given. Using a sample file")
+        input_file = 'input/sample.json'
+        logger.info(f"No input file given. Using a sample file {input_file}")
     with open(input_file,
               encoding='utf-8') as _in_file:
         _raw_obj = _in_file.readlines()
         df = create_df(_raw_obj)
-        logger.info("\n" + "123")
         logger.info("================Save Parse JSON as CSV=============")
         logger.info(create_csv(input_file, df))
         logger.info("===================================================\n")
