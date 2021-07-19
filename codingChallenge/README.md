@@ -15,7 +15,20 @@
 3. _Transpose all the child companies as columns for a parent company_  - Assumed child comapnies to be pivoted to respective parent company. 
 
 
-
+## Setup
+    
+    # Required python3.6 or higher in a linux / unix system
+    
+    git@github.com:vas610/trav.git
+    
+    cd trav/codingChallenge
+    
+    python -m venv venv
+    
+    source ./venv/bin/activate
+    
+    pip install -e .
+    
 ## Outputs
 
 1. Save JSON as CSV - [1_output.csv](1_output.csv)
