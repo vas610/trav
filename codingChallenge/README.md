@@ -17,7 +17,7 @@
 
 ## Setup & execution
 
-    ```shell
+  ```bash
     # Required python3.6 or higher in a linux / unix system
 
     # Clone repo and setup a virtual environment
@@ -44,7 +44,7 @@
     # Deactivate virtual environment
 
     deactivate
-    ```
+  ```
 
 ## logs
 
