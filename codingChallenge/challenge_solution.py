@@ -208,18 +208,18 @@ if __name__ == '__main__':
         df = create_df(_raw_obj)
         logger.info("================Save Parse JSON as CSV=============")
         logger.info(create_csv(input_file, df))
-        logger.info("===================================================\n")
+        logger.info("===================================================")
         logger.info("===============Max rating per industry=============")
         logger.info("\n" + str(max_rating_per_industry(df)))
-        logger.info("===================================================\n")
+        logger.info("===================================================")
         logger.info("==========Company with min rating per parent=======")
         logger.info("\n" + tabulate(company_with_min_rating_per_parent(df),
                                     headers='keys', tablefmt='github'))
-        logger.info("===================================================\n")
+        logger.info("===================================================")
         logger.info("==========Pivot / transpose child to parent=======")
         # print(pivot_child_companies_to_parent(df))
         logger.info("\n" + tabulate(pivot_child_companies_to_parent(df),
                                     headers='keys', tablefmt='github'))
-        logger.info("===================================================\n")
+        logger.info("===================================================")
 
 # %%

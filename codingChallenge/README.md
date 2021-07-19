@@ -17,7 +17,10 @@
 
 ## Setup & execution
 
+    ```shell
     # Required python3.6 or higher in a linux / unix system
+
+    # Clone repo and setup a virtual environment
 
     git@github.com:vas610/trav.git
 
@@ -29,11 +32,23 @@
 
     pip install -e .
 
+    # Run unit test
+    pytest . -v -s
+
+    # Run the actual program
+
     ./challenge_solution.py
+
+    # > Enter a json file name (with path) to process:
+
+    # Deactivate virtual environment
+
+    deactivate
+    ```
 
 ## logs
 
-   Logs can be found in [logs/logs.log](logs/logs.log)
+   Logs can be found in [logs/log](logs/log)
 
 ## Outputs
 
